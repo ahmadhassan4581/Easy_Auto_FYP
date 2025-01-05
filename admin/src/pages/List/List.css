@@ -1,0 +1,77 @@
+.car-list-container {
+    margin: 20px auto;
+    max-width: 100%; /* Center and limit the container width */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.list-table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.list-table-format {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 20vw;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list-table-format.title {
+    font-weight: bold;
+    color: #555;
+    background-color: #e6e6e6;
+    border: none;
+}
+
+.list-table-format.row {
+    transition: all 0.3s ease-in-out;
+}
+
+.list-table-format.row:hover {
+    background-color: #f1f1f1;
+}
+
+.list-table-format img {
+    width: 100%;
+    max-width: 60px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.list-table-format div {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .list-table-format {
+        grid-template-columns: 1.2fr 2fr 1fr;
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    .list-table-format img {
+        max-width: 50px;
+    }
+}
