@@ -4,7 +4,7 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 import { CartContext } from '../context/CarContext';
 import { useNavigate } from 'react-router-dom';
 
-const stripePromise = loadStripe('pk_test_51PaePxCaWz00BLNq46V9vFgbjvTUUIo1o2VUt55oue2Zjh7IBB5Sv4KKrJbzv3DKXV9hdfLynLsusvDmvPdffULb00zsrmLxtQ');
+const stripePromise = loadStripe('add your stripe ');
 
 const CheckoutForm = () => {
     const stripe = useStripe();
