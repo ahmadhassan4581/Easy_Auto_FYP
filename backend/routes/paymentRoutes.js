@@ -3,7 +3,7 @@ import express from 'express';
 import Stripe from 'stripe';
 
 const router = express.Router();
-const stripe = Stripe('sk_test_51PaePxCaWz00BLNqJ2TR9WvHtSDqoISg5g7spDLRPTdMmgnjXSLX9HMBhSUPkfOeyOxOMSvwKLtEuiX8w24Lb3hP009xWRc1wu');
+const stripe = Stripe('your stripe key');
 
 router.post('/create-payment-intent', async (req, res) => {
     try {
