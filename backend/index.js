@@ -10,12 +10,12 @@ import cors from 'cors';
 import purchaseRoutes from './routes/purchase_route.js';
 import reviewRoutes from './routes/reviewRoutes.js';
 import maintenanceServiceRoutes from './routes/maintenanceServiceRoutes.js';
-import { scheduleEmailReminders } from './emailScheduler.js'; // Import the scheduler
+import { scheduleEmailReminders } from './emailScheduler.js';
+import serverless from 'serverless-http'; // ✅ Import serverless-http
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 4000;
 
 connectDB();
 
@@ -34,13 +34,17 @@ app.use('/api/maintenance-services', maintenanceServiceRoutes);
 
 // Default route
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hello World from Serverless Express API!');
 });
 
 // Schedule email reminders
 scheduleEmailReminders();
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// ✅ Export for Vercel
+export const handler = serverless(app);
+
+// ✅ Only listen when running locally
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => console.log(`Server running locally on port ${PORT}`));
+}
